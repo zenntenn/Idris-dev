@@ -11,9 +11,7 @@
 #include <unistd.h>
 
 #ifdef _WIN32
-int win_fpoll(void* h);
-FILE *win32_u8fopen(const char *path, const char *mode);
-FILE *win32_u8popen(const char *path, const char *mode);
+#include "windows/win_utils.h"
 #else
 #include <sys/select.h>
 #endif
@@ -204,6 +202,26 @@ char* getEnvPair(int i) {
 VAL idris_time() {
     time_t t = time(NULL);
     return MKBIGI(t);
+}
+
+VAL idris_clock(VM* vm) {
+    VAL result;
+#ifdef _WIN32
+    int64_t sec, nsec;
+    win32_gettime(&sec, &nsec);
+    idris_constructor(result, vm, 0, 2, 0);
+    idris_setConArg(result, 0, MKBIGI(sec));
+    idris_setConArg(result, 1, MKBIGI(nsec));
+#else
+    struct timespec ts;
+    // We're not checking the result here, which is of course bad, but
+    // CLOCK_REALTIME is required by POSIX at least!
+    clock_gettime(CLOCK_REALTIME, &ts);
+    idris_constructor(result, vm, 0, 2, 0);
+    idris_setConArg(result, 0, MKBIGI(ts.tv_sec));
+    idris_setConArg(result, 1, MKBIGI(ts.tv_nsec));
+#endif
+    return result;
 }
 
 VAL idris_mkFileError(VM* vm) {

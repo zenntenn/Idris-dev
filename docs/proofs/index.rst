@@ -18,8 +18,11 @@ A tutorial on theorem proving in Idris.
 .. toctree::
    :maxdepth: 1
 
+   definitional
    pluscomm
    inductive
    patterns
+   propositional
    interactive
+   interactiveOld
 
