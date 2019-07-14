@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/idris-lang/Idris-dev.svg?branch=master)](https://travis-ci.org/idris-lang/Idris-dev)
 [![Appveyor build](https://ci.appveyor.com/api/projects/status/xi8yu81oy1134g7o/branch/master?svg=true)](https://ci.appveyor.com/project/idrislang/idris-dev)
+[![Build Status](https://zentenca.visualstudio.com/Idris/_apis/build/status/zenntenn.Idris-dev?branchName=master)](https://zentenca.visualstudio.com/Idris/_build/latest?definitionId=2&branchName=master)
 [![Documentation Status](https://readthedocs.org/projects/idris/badge/?version=latest)](https://readthedocs.org/projects/idris/?badge=latest)
 [![Hackage](https://img.shields.io/hackage/v/idris.svg)](https://hackage.haskell.org/package/idris)
 [![Stackage LTS](http://stackage.org/package/idris/badge/lts)](http://stackage.org/lts/package/idris)
