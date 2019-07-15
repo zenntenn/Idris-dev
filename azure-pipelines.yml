@@ -61,7 +61,7 @@ jobs:
   # Test on Windows
   - job: Windows
     pool:
-      vmImage: 'win1803'
+      vmImage: 'windows-2019'
     steps:
     - powershell: |
         choco install cabal -y --no-progress
