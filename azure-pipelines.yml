@@ -59,31 +59,31 @@ jobs:
         make test_c
       displayName: 'Build idris and run tests'
   # Test on Windows
-  - job: Windows
-    pool:
-      vmImage: 'windows-2019'
-    steps:
-    - powershell: |
-        choco install cabal -y --no-progress
-        choco install 7zip.portable -y --no-progress
-        choco install msys2 -y --no-progress --params "/InstallDir=C:/msys64/"
-        mkdir C:\ghc
-        Invoke-WebRequest "http://downloads.haskell.org/~ghc/8.4.3/ghc-8.4.3-x86_64-unknown-mingw32.tar.xz" -OutFile C:\ghc\ghc.tar.xz -UserAgent "Curl"
-        7z x C:\ghc\ghc.tar.xz -oC:\ghc
-        7z x C:\ghc\ghc.tar -oC:\ghc
-      displayName: "Setting up environment"
-    - powershell: |
-        cabal update
-        $env:PATH="$env:PATH;$HOME\AppData\Roaming\cabal\bin;c:\ghc\ghc-8.4.3\bin"
-        $env:current_posix=c:\msys64\usr\bin\cygpath -u $(pwd)
-        c:\msys64\usr\bin\bash -l -c "echo `$MSYSTEM && echo `$PATH"
-        c:\msys64\usr\bin\bash -l -c "pacman -S make mingw-w64-x86_64-gcc mingw-w64-x86_64-pkg-config mingw-w64-x86_64-libffi --noconfirm 2>&1"
-        c:\msys64\usr\bin\bash -l -c "cd $env:current_posix && cabal install -fffi --enable-test 2>&1"
-        c:\msys64\usr\bin\bash -l -c "cd $env:current_posix && make test_c 2>&1"
-      env:
-        MSYSTEM: MINGW64
-        MSYS2_PATH_TYPE: inherit
-      displayName: "Build and test Idris"
+  #- job: Windows
+   # pool:
+    #  vmImage: 'windows-2019'
+   # steps:
+    #- powershell: |
+     #   choco install cabal -y --no-progress
+      #  choco install 7zip.portable -y --no-progress
+       # choco install msys2 -y --no-progress --params "/InstallDir=C:/msys64/"
+      #  mkdir C:\ghc
+       # Invoke-WebRequest "http://downloads.haskell.org/~ghc/8.4.3/ghc-8.4.3-x86_64-unknown-mingw32.tar.xz" -OutFile C:\ghc\ghc.tar.xz -UserAgent "Curl"
+#        7z x C:\ghc\ghc.tar.xz -oC:\ghc
+#        7z x C:\ghc\ghc.tar -oC:\ghc
+#      displayName: "Setting up environment"
+#    - powershell: |
+#        cabal update
+#        $env:PATH="$env:PATH;$HOME\AppData\Roaming\cabal\bin;c:\ghc\ghc-8.4.3\bin"
+#        $env:current_posix=c:\msys64\usr\bin\cygpath -u $(pwd)
+#        c:\msys64\usr\bin\bash -l -c "echo `$MSYSTEM && echo `$PATH"
+#        c:\msys64\usr\bin\bash -l -c "pacman -S make mingw-w64-x86_64-gcc mingw-w64-x86_64-pkg-config mingw-w64-x86_64-libffi --noconfirm 2>&1"
+#        c:\msys64\usr\bin\bash -l -c "cd $env:current_posix && cabal install -fffi --enable-test 2>&1"
+#        c:\msys64\usr\bin\bash -l -c "cd $env:current_posix && make test_c 2>&1"
+#      env:
+#        MSYSTEM: MINGW64
+#        MSYS2_PATH_TYPE: inherit
+#      displayName: "Build and test Idris"
   # Check styling
   - job: Stylize
     pool:
