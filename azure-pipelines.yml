@@ -30,7 +30,7 @@ jobs:
       vmImage: 'ubuntu-16.04'
     steps:
     - script: |
-        echo Definition ID is $(System.DefinitionId)
+        echo Collection ID is $(System.CollectionId)
         sudo add-apt-repository ppa:hvr/ghc
         sudo apt-get update
         sudo apt-get install ghc-8.2.2 cabal-install-2.2
