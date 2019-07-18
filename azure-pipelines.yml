@@ -6,7 +6,7 @@ jobs:
   # Test a configuration with the oldest supported GHC
   - job: Linux_GHC_710
     pool:
-      vmImage: 'Ubuntu 16.04'
+      vmImage: 'ubuntu-16.04'
     steps:
     - script: |
         sudo add-apt-repository ppa:hvr/ghc
@@ -27,7 +27,7 @@ jobs:
   # Test on Linux
   - job: Linux
     pool:
-      vmImage: 'Ubuntu 16.04'
+      vmImage: 'ubuntu-16.04'
     steps:
     - script: |
         sudo add-apt-repository ppa:hvr/ghc
@@ -87,7 +87,7 @@ jobs:
   # Check styling
   - job: Stylize
     pool:
-      vmImage: 'Ubuntu 16.04'
+      vmImage: 'ubuntu-16.04'
     steps:
     - script: |
         sudo add-apt-repository ppa:hvr/ghc
@@ -105,7 +105,7 @@ jobs:
   # Run tests on the node backend
   - job: JS
     pool:
-      vmImage: 'Ubuntu 16.04'
+      vmImage: 'ubuntu-16.04'
     steps:
     - script: |
         sudo add-apt-repository ppa:hvr/ghc
@@ -126,7 +126,7 @@ jobs:
   # Build docs
   - job: Docs
     pool:
-      vmImage: 'Ubuntu 16.04'
+      vmImage: 'ubuntu-16.04'
     steps:
     - script: |
         sudo add-apt-repository ppa:hvr/ghc
