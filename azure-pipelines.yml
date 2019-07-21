@@ -46,6 +46,8 @@ jobs:
         export PATH=/opt/ghc/bin:$HOME/.cabal/bin:$PATH
         make test_c
       displayName: 'Run tests'
+    - publish: $(System.DefaultWorkingDirectory)/
+      artifact: LinuxHead
   # Test on MacOS 
   - job: macOS
     pool:
