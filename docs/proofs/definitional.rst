@@ -65,14 +65,14 @@ is a proposition and it is also a type. This is built into Idris so when an '=' 
    2 = 3 : Type
 
 Both of these are valid propositions so both are valid equality types. But how do we represent true judgment, that is, how do we denote 1+1=2 is true but not 1+1=3.
-A type that is true is inhabited, that is, it can be constructed. An equality type has only on constructor 'Refl' so a proof of 1+1=2 is
+A type that is true is inhabited, that is, it can be constructed. An equality type has only one constructor 'Refl' so a proof of 1+1=2 is
 
 .. code-block:: idris
 
    onePlusOne : 1+1=2
    onePlusOne = Refl
 
-So how can Refl, which is a constructor without any parameters, construct and equality type? If we type it on its own then it can't:
+So how can Refl, which is a constructor without any parameters, construct an equality type? If we type it on its own then it can't:
 
 .. code-block:: idris
 
