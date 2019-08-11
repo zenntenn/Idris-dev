@@ -51,7 +51,7 @@ jobs:
   # Test on MacOS 
   - job: macOS
     pool:
-      vmImage: 'xcode9-macos10.13'
+      vmImage: 'macOS-latest'
     steps:
     - script: |
         brew install ghc cabal-install libffi pkgconfig
